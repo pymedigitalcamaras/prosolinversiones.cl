@@ -36,11 +36,35 @@ export default async function Home() {
   return (
     <>
       <HeroSlider slides={slides.length > 0 ? slides : undefined} />
-      <section className="quick-contact" aria-label="Contacto y evaluación">
+      <section className="quick-contact" aria-label="Contacto y evaluación técnica">
         <div className="container quick-contact-grid">
-          <a className="quick-item" href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle size={28} /><div><strong>Conversemos por WhatsApp <ArrowUpRight size={15} /></strong><p>{site.phoneDisplay} · {site.responseTime}</p></div></a>
-          <Link className="quick-item" href="/contacto"><ClipboardCheck size={27} /><div><strong>Solicite una evaluación <ArrowRight size={15} /></strong><p>Antecedentes técnicos para su edificio o comité.</p></div></Link>
-          <div className="quick-item"><Clock3 size={26} /><div><strong>Horario de atención</strong><p>{site.hours}. La atención se rige por este horario informado.</p></div></div>
+          <a className="quick-item quick-item--whatsapp" href={whatsappUrl()} target="_blank" rel="noreferrer">
+            <div className="quick-icon">
+              <MessageCircle size={24} aria-hidden="true" />
+            </div>
+            <div className="quick-text">
+              <strong>Conversemos por WhatsApp <ArrowUpRight size={15} aria-hidden="true" /></strong>
+              <p>{site.phoneDisplay} · {site.responseTime}</p>
+            </div>
+          </a>
+          <Link className="quick-item quick-item--eval" href="/contacto">
+            <div className="quick-icon">
+              <ClipboardCheck size={24} aria-hidden="true" />
+            </div>
+            <div className="quick-text">
+              <strong>Solicite una evaluación <ArrowRight size={15} aria-hidden="true" /></strong>
+              <p>Antecedentes técnicos para su edificio o comité.</p>
+            </div>
+          </Link>
+          <div className="quick-item quick-item--hours">
+            <div className="quick-icon">
+              <Clock3 size={24} aria-hidden="true" />
+            </div>
+            <div className="quick-text">
+              <strong>Horario y cobertura</strong>
+              <p>{site.hours} · {site.coverage}</p>
+            </div>
+          </div>
         </div>
       </section>
 

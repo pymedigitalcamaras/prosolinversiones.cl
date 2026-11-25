@@ -33,14 +33,14 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} {site.legalName}</span>
+        <span>© {new Date().getFullYear()} {site.legalName} · Todos los derechos reservados</span>
         <nav aria-label="Enlaces legales">
           <Link href="/privacidad">Privacidad</Link>
           <Link href="/cookies">Cookies</Link>
           <Link href="/derechos-arsop">Derechos ARSOP</Link>
           <Link href="/acceso">Acceso equipo</Link>
         </nav>
-        <span className="demo-label">Versión local F3-A · formularios públicos sin persistencia</span>
+        <span className="footer-status-badge">Soluciones de Climatización y ACS</span>
       </div>
     </footer>
   );

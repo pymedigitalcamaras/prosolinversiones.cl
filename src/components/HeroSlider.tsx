@@ -79,10 +79,15 @@ export function HeroSlider({ slides = defaultSlides }: { slides?: SlideData[] })
             <div className="hero-overlay" />
             <div className="container hero-content">
               <div className="hero-copy">
-                <span className="eyebrow">{slide.eyebrow}</span>
+                <span className="hero-badge">{slide.eyebrow}</span>
                 {index === 0 ? <h1>{slide.title}</h1> : <h2>{slide.title}</h2>}
                 <p>{slide.text}</p>
-                <Link className="button" href={slide.href} tabIndex={index === current ? 0 : -1}>{slide.action}<ArrowRight size={18} /></Link>
+                <div className="hero-actions">
+                  <Link className="button button-hero" href={slide.href} tabIndex={index === current ? 0 : -1}>
+                    {slide.action}
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
             </div>
           </article>
