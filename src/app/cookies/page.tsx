@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHero } from "@/components/PageElements";
+
+export const metadata: Metadata = { title: "Política y preferencias de cookies", description: "Información sobre cookies necesarias, analíticas y de marketing, y gestión de preferencias en el sitio Prosol.", alternates: { canonical: "/cookies" } };
+
+export default function CookiesPage() {
+  return <><PageHero eyebrow="Cookies" title="Control granular, sin seguimiento oculto." intro="Las categorías opcionales están desactivadas por defecto. En F2 no existen herramientas de analítica o marketing conectadas." index="LEGAL / 02" />
+    <section className="section"><div className="container legal-layout"><nav className="legal-nav" aria-label="Contenido de cookies"><strong>En esta página</strong><a href="#que-son">Qué son</a><a href="#categorias">Categorías</a><a href="#f2">Estado de F2</a><a href="#gestion">Gestión</a></nav><article className="legal-content"><p className="legal-updated">Versión de demostración F2 · Octubre de 2026</p>
+      <section id="que-son"><h2>1. Qué son y cómo las usamos</h2><p>Las cookies y tecnologías similares permiten funciones esenciales, recordar preferencias o medir la navegación. Prosol separa las funciones necesarias de las opcionales para que usted pueda decidir.</p></section>
+      <section id="categorias"><h2>2. Categorías</h2><h3>Necesarias</h3><p>Siempre activas cuando resultan indispensables para seguridad, navegación o funciones solicitadas. No se utilizan con fines publicitarios.</p><h3>Analíticas</h3><p>Permitirían comprender el uso agregado del sitio. Requieren consentimiento y no están instaladas en esta versión.</p><h3>Marketing</h3><p>Permitirían medir o personalizar comunicaciones comerciales. Requieren consentimiento y no están instaladas en esta versión.</p></section>
+      <section id="f2"><h2>3. Qué ocurre en esta demostración local</h2><div className="legal-callout"><p>No se cargan Google Analytics, píxeles publicitarios, cookies de seguimiento ni servicios de terceros equivalentes.</p></div><p>Al elegir sus preferencias, el navegador guarda localmente la clave <code>prosol-f2-cookie-preferences</code>, con las categorías elegidas, la versión y la fecha de la elección. Este registro permanece en su navegador y no se envía a Prosol.</p></section>
+      <section id="gestion"><h2>4. Cómo cambiar su decisión</h2><p>Puede borrar los datos del sitio desde la configuración de su navegador para volver a mostrar el panel de preferencias. En una fase productiva se incorporará un acceso permanente para modificar o retirar el consentimiento sin necesidad de borrar los datos manualmente.</p><p>La futura integración de analítica o marketing exigirá actualizar este inventario, identificar a los encargados y activar cada herramienta solo después del consentimiento correspondiente.</p><p>Para conocer el tratamiento de datos personales, revise el <Link href="/privacidad">aviso de privacidad</Link>.</p></section>
+    </article></div></section></>;
+}
