@@ -83,66 +83,106 @@ ul { padding-left: 1.2rem; }
 .text-link:hover { color: var(--orange-dark); }
 .tag { display: inline-flex; padding: 5px 12px; border: 1px solid var(--line); border-radius: var(--radius-full); color: var(--steel); font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 
-/* Utility Bar & Header estilo NAE */
-.utility-bar { background: var(--navy-deep); color: #cbd5e1; font-size: .74rem; border-bottom: 1px solid rgba(255,255,255,.06); }
-.utility-inner { min-height: 34px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-.utility-inner span, .utility-inner a { display: inline-flex; align-items: center; gap: 7px; }
-.utility-inner a:hover { color: var(--orange); }
-.utility-right { display: flex; align-items: center; gap: 14px; }
-.utility-divider { color: #475569; }
-.utility-badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: var(--radius-full); background: rgba(240, 152, 3, 0.18); color: #ffb732; font-size: .68rem; font-weight: 700; letter-spacing: .04em; }
+/* ==========================================================================
+   NAE PLATFORM HEADER (Exact Replica with Prosol Identity)
+   ========================================================================== */
+.nae-navbar { position: sticky; top: 0; z-index: 50; width: 100%; height: 64px; background: #ffffff; border-bottom: 1px solid #e2e8f0; }
+.nae-navbar-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.nae-nav-left { display: flex; align-items: center; gap: 28px; }
+.nae-nav-left .brand { display: flex; align-items: center; }
+.nae-nav-left .brand img { height: 38px; width: auto; mix-blend-mode: multiply; }
+.nae-desktop-menu { display: flex; align-items: center; gap: 20px; font-size: 12.5px; font-weight: 600; color: #334155; }
+.nae-desktop-menu a { transition: color .15s ease; white-space: nowrap; }
+.nae-desktop-menu a:hover, .nae-desktop-menu a.active { color: #072a42; }
 
-.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.90); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); transition: box-shadow .2s; }
-.header-inner { height: 74px; display: flex; align-items: center; gap: 32px; }
-.brand { display: flex; align-items: center; margin-right: auto; }
-.brand img { display: block; width: 170px; height: auto; mix-blend-mode: multiply; }
-.desktop-nav { display: flex; align-items: center; gap: 8px; }
-.desktop-nav a { display: inline-flex; align-items: center; padding: 8px 14px; border-radius: var(--radius-sm); color: var(--slate-700); font-size: .86rem; font-weight: 600; transition: all .15s ease; }
-.desktop-nav a:hover { background: var(--surface); color: var(--navy); }
-.desktop-nav a.active { background: var(--orange-pale); color: var(--orange-dark); font-weight: 700; }
-.header-actions { display: flex; align-items: center; gap: 12px; }
-.header-cta { border-radius: var(--radius-full); }
-.menu-toggle { display: none; width: 42px; height: 42px; border: 0; border-radius: var(--radius-sm); background: var(--surface); color: var(--navy); }
-.mobile-menu { display: none; }
+.nae-nav-right { display: flex; align-items: center; gap: 14px; font-size: 12px; }
+.nae-online-pill { display: flex; align-items: center; gap: 8px; color: #334155; font-weight: 500; font-size: 12px; white-space: nowrap; }
+.nae-ping-dot { position: relative; display: flex; width: 8px; height: 8px; }
+.nae-ping-animate { position: absolute; inset: 0; border-radius: 9999px; background: #34d399; opacity: .75; animation: ping 1.5s cubic-bezier(0, 0, .2, 1) infinite; }
+.nae-ping-static { position: relative; width: 8px; height: 8px; border-radius: 9999px; background: #10b981; }
+@keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
 
-/* Hero Slider estilo NAE (altura equilibrada ~62vh con luz de día y gradiente lateral) */
-.hero { position: relative; height: clamp(520px, 64vh, 660px); min-height: 520px; overflow: hidden; background: var(--navy-deep); color: var(--white); }
-.hero-slides, .hero-slide { position: absolute; inset: 0; }
-.hero-slide { opacity: 0; visibility: hidden; transition: opacity .7s ease-in-out, visibility .7s; }
-.hero-slide.active { opacity: 1; visibility: visible; z-index: 1; }
-.hero-slide > img { object-fit: cover; object-position: center; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,18,32,.92) 0%, rgba(11,18,32,.72) 48%, rgba(11,18,32,.20) 100%), linear-gradient(0deg, rgba(11,18,32,.55) 0%, transparent 40%); }
-.hero-content { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; padding-bottom: 50px; }
-.hero-copy { max-width: 760px; }
-.hero-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px; padding: 6px 16px; border-radius: var(--radius-full); background: rgba(240, 152, 3, 0.16); border: 1px solid rgba(240, 152, 3, 0.38); color: #ffb732; font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(6px); }
-.hero-copy h1, .hero-copy h2 { max-width: 760px; margin-bottom: 20px; color: var(--white); font-size: clamp(2.3rem, 4.4vw, 3.8rem); font-weight: 800; line-height: 1.12; letter-spacing: -.03em; }
-.hero-copy p { max-width: 630px; margin-bottom: 32px; color: rgba(241,245,249,.92); font-size: clamp(1rem, 1.25vw, 1.16rem); line-height: 1.65; }
-.hero-actions { display: flex; align-items: center; gap: 14px; }
-.hero-controls { position: absolute; z-index: 4; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 24px; }
-.hero-count { display: flex; align-items: baseline; gap: 5px; min-width: 58px; font-variant-numeric: tabular-nums; }
-.hero-count strong { color: var(--white); font-size: .95rem; font-weight: 700; }
-.hero-count span { color: #94a3b8; font-size: .72rem; }
-.hero-progress { display: flex; gap: 8px; }
-.hero-progress button { width: 36px; height: 22px; padding: 9px 0; border: 0; background: transparent; cursor: pointer; }
-.hero-progress button span { display: block; height: 3px; border-radius: 2px; background: rgba(255,255,255,.3); transition: background .2s; }
-.hero-progress button[aria-selected="true"] span { background: var(--orange); }
-.hero-arrows { display: flex; gap: 8px; margin-left: auto; }
-.hero-arrows button { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.25); border-radius: var(--radius-full); background: rgba(15,23,42,.4); backdrop-filter: blur(8px); color: var(--white); transition: all .2s; }
-.hero-arrows button:hover { background: var(--orange); border-color: var(--orange); color: var(--navy-deep); transform: scale(1.05); }
-.hero-arrows svg { width: 17px; }
+.nae-phone-pill { background: #f1f5f9; padding: 4px 10px; border-radius: 6px; border: 1px solid #e2e8f0; font-weight: 700; color: #1e293b; font-size: 12px; user-select: all; cursor: default; white-space: nowrap; }
+.nae-lang-wrap { position: relative; }
+.nae-lang-btn { display: flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; border: 0; background: transparent; color: #334155; font-weight: 500; font-size: 12px; cursor: pointer; transition: background .15s; }
+.nae-lang-btn:hover { background: #f1f5f9; color: #0f172a; }
+.nae-lang-dropdown { position: absolute; right: 0; top: 100%; margin-top: 6px; width: 140px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,.08); padding: 6px; z-index: 60; font-size: 12px; }
+.nae-lang-active { padding: 6px 10px; font-weight: 700; color: #0f172a; background: #f8fafc; border-radius: 6px; }
+.nae-lang-disabled { padding: 6px 10px; color: #94a3b8; display: flex; align-items: center; justify-content: space-between; }
+.nae-soon-badge { font-size: 9px; text-transform: uppercase; font-weight: 700; background: #f1f5f9; padding: 1px 5px; border-radius: 4px; }
+.nae-login-link { display: flex; align-items: center; gap: 6px; padding: 4px 8px; font-weight: 600; color: #334155; font-size: 12px; transition: color .15s; }
+.nae-login-link:hover { color: #072a42; }
 
-/* Quick Contact Dock estilo NAE (Dock flotante superpuesto al Hero) */
-.quick-contact { position: relative; z-index: 20; margin-top: -38px; background: transparent; border: 0; }
-.quick-contact-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; }
-.quick-item { display: flex; align-items: center; gap: 18px; padding: 20px 24px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: #ffffff; box-shadow: var(--shadow-lg); transition: all .25s cubic-bezier(0.16, 1, 0.3, 1); }
-.quick-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: #cbd5e1; }
-.quick-icon { width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--orange-pale); color: var(--orange-dark); display: grid; place-items: center; flex: 0 0 auto; transition: all .2s; }
-.quick-item:hover .quick-icon { background: var(--orange); color: var(--navy-deep); }
-.quick-text strong { display: flex; align-items: center; gap: 6px; color: var(--navy); font-size: .92rem; font-weight: 700; }
-.quick-text p { margin: 4px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.45; }
+.nae-mobile-actions { display: none; align-items: center; gap: 10px; }
+.nae-phone-pill-mobile { font-size: 11px; font-weight: 700; color: #1e293b; background: #f1f5f9; padding: 3px 8px; border-radius: 6px; border: 1px solid #e2e8f0; }
+.nae-login-btn-mobile { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; color: #334155; background: #f1f5f9; }
+.nae-mobile-dropdown { display: none; position: absolute; left: 0; right: 0; top: 64px; background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 12px 28px rgba(0,0,0,.08); z-index: 50; }
+.nae-mobile-dropdown nav { display: flex; flex-direction: column; padding: 16px 20px 24px; gap: 12px; }
+.nae-mobile-dropdown a { font-size: 14px; font-weight: 600; color: #1e293b; padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
+.nae-mobile-phone-section { padding-top: 10px; font-size: 12px; color: #64748b; }
+.nae-mobile-phone-section strong { display: block; font-size: 14px; color: #0f172a; margin-top: 3px; }
 
-/* Metrics Section moderna */
-.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 36px 32px; border-radius: var(--radius-xl); border: 1px solid var(--line); background: var(--surface); }
+/* ==========================================================================
+   NAE HERO CAROUSEL (Exact Height 54vh - 62vh & Gradient Overlay)
+   ========================================================================== */
+.nae-hero-wrapper { position: relative; width: 100%; }
+.nae-hero-carousel { position: relative; width: 100%; height: clamp(440px, 58vh, 560px); min-height: 440px; max-height: 560px; background: #071e33; overflow: hidden; user-select: none; }
+.nae-hero-slide { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .7s ease-in-out; }
+.nae-hero-slide.active { opacity: 1; pointer-events: auto; z-index: 10; }
+.nae-slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* NAE Signature Navy Gradient Overlay */
+.nae-hero-overlay { position: absolute; inset: 0; z-index: 10; background: linear-gradient(90deg, rgba(7,42,66,.88) 0%, rgba(7,42,66,.65) 55%, rgba(7,42,66,.2) 100%); }
+
+.nae-hero-content { position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; justify-content: center; padding-bottom: 48px; pointer-events: none; }
+.nae-hero-copy { max-width: 800px; text-align: left; pointer-events: auto; }
+.nae-hero-tag { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #cbd5e1; margin-bottom: 12px; }
+.nae-hero-title { font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 900; color: #ffffff; line-height: 1.15; letter-spacing: -.03em; margin: 0 0 14px; text-shadow: 0 1px 2px rgba(0,0,0,.25); }
+.nae-hero-subtitle { font-size: clamp(.88rem, 1.2vw, 1.02rem); color: #f1f5f9; line-height: 1.6; font-weight: 400; max-width: 660px; margin: 0 0 20px; }
+
+.nae-ghost-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,.6); color: #ffffff; background: transparent; font-weight: 600; font-size: 13px; transition: all .2s; }
+.nae-ghost-btn:hover { background: rgba(255,255,255,.12); border-color: #ffffff; transform: translateY(-1px); color: #ffffff; }
+
+/* Arrows on left & right edges */
+.nae-arrow-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 30; width: 40px; height: 40px; border-radius: 9999px; background: rgba(0,0,0,.32); border: 1px solid rgba(255,255,255,.2); color: #ffffff; display: grid; place-items: center; cursor: pointer; transition: all .2s; }
+.nae-arrow-btn:hover { background: rgba(0,0,0,.65); transform: translateY(-50%) scale(1.06); }
+.nae-arrow-prev { left: 16px; }
+.nae-arrow-next { right: 16px; }
+
+/* Dots at bottom-right corner (Orange active pill + white dots) */
+.nae-slider-dots { position: absolute; bottom: 50px; right: 36px; z-index: 30; display: flex; align-items: center; gap: 6px; }
+.nae-dot { height: 8px; width: 8px; border-radius: 9999px; background: rgba(255,255,255,.5); border: 0; padding: 0; cursor: pointer; transition: all .3s; }
+.nae-dot.active { width: 28px; background: #f09803; border-radius: 9999px; }
+
+/* ==========================================================================
+   FLOATING ACTION DOCK (Exact NAE Screenshot Replica)
+   ========================================================================== */
+.nae-dock-container { position: relative; z-index: 30; margin-top: -38px; }
+.nae-dock-pill { background: #ffffff; border-radius: 9999px; border: 1px solid #e2e8f0; box-shadow: 0 15px 35px -5px rgba(15,23,42,.12), 0 5px 15px rgba(0,0,0,.04); padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+/* Left Agent Info */
+.nae-dock-agent { display: flex; align-items: center; gap: 12px; }
+.nae-dock-avatar-wrap { position: relative; flex-shrink: 0; }
+.nae-dock-avatar { width: 38px; height: 38px; border-radius: 9999px; background: #e2e8f0; border: 2px solid #10b981; display: grid; place-items: center; font-weight: 800; font-size: 11px; color: #334155; }
+.nae-dock-avatar-dot { position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; border-radius: 9999px; background: #10b981; border: 2px solid #ffffff; }
+.nae-dock-agent-title { font-size: 12px; font-weight: 700; color: #0f172a; white-space: nowrap; }
+.nae-dock-agent-title span { font-weight: 800; color: #072a42; }
+.nae-dock-agent-desc { font-size: 11px; color: #64748b; }
+
+/* Middle Links + Phone Box */
+.nae-dock-links { display: flex; align-items: center; gap: 20px; font-size: 12px; font-weight: 600; color: #334155; }
+.nae-dock-link { display: flex; align-items: center; gap: 6px; color: #334155; transition: color .15s; white-space: nowrap; }
+.nae-dock-link:hover { color: #072a42; }
+.nae-dock-link svg { color: #64748b; }
+.nae-dock-phone-box { font-size: 12px; font-weight: 600; color: #334155; background: #f8fafc; padding: 4px 12px; border-radius: 9999px; border: 1px solid #e2e8f0; user-select: all; cursor: default; white-space: nowrap; }
+.nae-dock-phone-box strong { color: #0f172a; font-weight: 700; }
+
+/* Right WhatsApp Button */
+.nae-dock-whatsapp-btn { background: #f09803; color: #ffffff; padding: 9px 20px; border-radius: 9999px; font-weight: 700; font-size: 12px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(240,152,3,.35); transition: all .2s; border: 0; white-space: nowrap; }
+.nae-dock-whatsapp-btn:hover { background: #ffab19; transform: scale(1.02); color: #ffffff; }
+
+/* Section & Grid Styles */
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 36px 32px; border-radius: var(--radius-xl); border: 1px solid var(--line); background: var(--surface); margin-top: 48px; }
 .metric { padding: 12px 20px; border-right: 1px solid var(--line); }
 .metric:first-child { padding-left: 0; }
 .metric:last-child { border-right: 0; }
@@ -453,20 +493,19 @@ ul { padding-left: 1.2rem; }
   .contact-layout { gap: 40px; }
 }
 
+@media (max-width: 990px) {
+  .nae-desktop-menu, .nae-nav-right { display: none; }
+  .nae-mobile-actions { display: flex; }
+  .nae-dock-links { display: none; }
+  .nae-dock-pill { border-radius: 16px; padding: 12px 18px; }
+  .nae-dock-container { margin-top: -30px; }
+}
+
 @media (max-width: 900px) {
   .container { width: min(calc(100% - 36px), var(--container)); }
   .section { padding: 72px 0; }
-  .desktop-nav, .header-cta { display: none; }
-  .menu-toggle { display: grid; place-items: center; }
-  .mobile-menu { position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg); }
-  .mobile-menu.open { display: block; }
-  .mobile-menu nav { display: flex; flex-direction: column; padding: 18px 20px 28px; }
-  .mobile-menu nav > a:not(.button) { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 650; }
-  .mobile-menu .button { margin-top: 18px; }
-  .hero { height: clamp(480px, 60vh, 560px); min-height: 480px; }
-  .hero-copy { max-width: 630px; }
-  .quick-contact { margin-top: -30px; }
-  .quick-contact-grid { grid-template-columns: 1fr; gap: 12px; }
+  .menu-toggle { display: grid; place-items: center; border: 0; background: transparent; color: #1e293b; }
+  .nae-mobile-dropdown { display: block; }
   .metrics { grid-template-columns: 1fr 1fr; gap: 16px; padding: 28px 24px; }
   .metric:nth-child(2) { border-right: 0; }
   .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); padding-bottom: 16px; }
@@ -503,24 +542,14 @@ ul { padding-left: 1.2rem; }
   .container { width: min(calc(100% - 30px), var(--container)); }
   .section { padding: 56px 0; }
   .section-small { padding: 42px 0; }
-  .utility-inner { justify-content: center; }
-  .utility-right { display: none; }
-  .header-inner { height: 68px; }
-  .brand img { width: 140px; }
-  .hero { height: 500px; min-height: 480px; }
-  .hero-slide > img { object-position: 62% center; }
-  .hero-overlay { background: linear-gradient(90deg, rgba(11,18,32,.95) 0%, rgba(11,18,32,.75) 100%), linear-gradient(0deg, rgba(11,18,32,.65), transparent); }
-  .hero-content { align-items: center; padding-top: 20px; padding-bottom: 60px; }
-  .hero-copy h1, .hero-copy h2 { font-size: clamp(2.1rem, 9vw, 3rem); line-height: 1.15; }
-  .hero-copy p { font-size: .94rem; margin-bottom: 24px; }
-  .hero-controls { gap: 12px; bottom: 18px; }
-  .hero-progress { flex: 1; }
-  .hero-progress button { width: 24px; }
-  .hero-arrows button { width: 34px; height: 34px; }
-  .hero-arrows button:first-child { display: none; }
-  .quick-contact { margin-top: -24px; }
-  .quick-contact-grid { grid-template-columns: 1fr; gap: 10px; }
-  .quick-item { padding: 16px 18px; border-radius: var(--radius-md); }
+  .nae-hero-carousel { height: 480px; min-height: 440px; }
+  .nae-hero-content { padding-bottom: 60px; }
+  .nae-hero-title { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .nae-hero-subtitle { font-size: .88rem; margin-bottom: 18px; }
+  .nae-slider-dots { bottom: 65px; right: 20px; }
+  .nae-dock-container { margin-top: -35px; }
+  .nae-dock-pill { flex-direction: column; align-items: stretch; border-radius: 16px; gap: 14px; padding: 14px; }
+  .nae-dock-whatsapp-btn { justify-content: center; width: 100%; }
   .metrics { grid-template-columns: 1fr; padding: 24px 20px; }
   .metric { padding: 14px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .metric:last-child { border-bottom: 0; }

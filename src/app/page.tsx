@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, ClipboardCheck, Clock3, MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, MessageCircle } from "lucide-react";
 import { HeroSlider, SlideData } from "@/components/HeroSlider";
 import { CtaLevels } from "@/components/CtaLevels";
 import { ProductCard } from "@/components/ProductCard";
 import { categories, products } from "@/lib/products";
 import { demoBuildings, demoTestimonials } from "@/lib/demo-content";
-import { faqs, site, whatsappUrl } from "@/lib/site";
+import { faqs, whatsappUrl } from "@/lib/site";
 import { supabaseAdmin } from "@/lib/supabase";
 
 const familyImages: Record<string, string> = {
@@ -36,37 +36,6 @@ export default async function Home() {
   return (
     <>
       <HeroSlider slides={slides.length > 0 ? slides : undefined} />
-      <section className="quick-contact" aria-label="Contacto y evaluación técnica">
-        <div className="container quick-contact-grid">
-          <a className="quick-item quick-item--whatsapp" href={whatsappUrl()} target="_blank" rel="noreferrer">
-            <div className="quick-icon">
-              <MessageCircle size={24} aria-hidden="true" />
-            </div>
-            <div className="quick-text">
-              <strong>Conversemos por WhatsApp <ArrowUpRight size={15} aria-hidden="true" /></strong>
-              <p>{site.phoneDisplay} · {site.responseTime}</p>
-            </div>
-          </a>
-          <Link className="quick-item quick-item--eval" href="/contacto">
-            <div className="quick-icon">
-              <ClipboardCheck size={24} aria-hidden="true" />
-            </div>
-            <div className="quick-text">
-              <strong>Solicite una evaluación <ArrowRight size={15} aria-hidden="true" /></strong>
-              <p>Antecedentes técnicos para su edificio o comité.</p>
-            </div>
-          </Link>
-          <div className="quick-item quick-item--hours">
-            <div className="quick-icon">
-              <Clock3 size={24} aria-hidden="true" />
-            </div>
-            <div className="quick-text">
-              <strong>Horario y cobertura</strong>
-              <p>{site.hours} · {site.coverage}</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="section-small">
         <div className="container metrics">
@@ -77,7 +46,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="families-title">
+      <section className="section" id="familias" aria-labelledby="families-title">
         <div className="container">
           <div className="section-heading"><span className="eyebrow">Catálogo de bombas de calor</span><h2 id="families-title">Catálogo de bombas de calor NAE para agua caliente sanitaria.</h2><p>Doce soluciones de bombas de calor termodinámicas y estanques de acumulación. Cada equipo se dimensiona según la demanda de su edificio.</p></div>
           <div className="family-grid">
